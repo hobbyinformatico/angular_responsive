@@ -1,0 +1,25 @@
+
+mat-toolbar {
+  height: 50px; /* Imposta l'altezza desiderata */
+}
+
+.drawer-container {
+  height: calc(100vh - 50px);
+  position: relative; /* Imposta la posizione relativa sul contenitore */
+}
+
+mat-drawer {
+  width: 250px;
+  position: absolute; /* Imposta la posizione assoluta per il menu */
+  z-index: 1000; /* Assicurati che il menu sia sopra la pagina */
+}
+
+.button-burger {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer; /* Cambia il puntatore del mouse */
+}
+
+mat-icon {
+  color: white;
+}

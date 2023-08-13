@@ -1,0 +1,23 @@
+<!-- vertical-navbar.component.html -->
+
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()" class="button-burger">
+      <mat-icon>menu</mat-icon>
+  </button>
+  <span style="padding-left: 10px;">Progetto MUI</span>
+  <span  *ngIf="layout.mode === 'mobile'" style="padding-left: 10px;">(Mobile {{layout.width}}x{{layout.height}})</span>
+  <span  *ngIf="layout.mode === 'desktop'" style="padding-left: 10px;">(Desktop {{layout.width}}x{{layout.height}})</span>
+</mat-toolbar>
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #drawer [mode]="layout.mode === 'desktop' ? 'side' : 'over'" [opened]="layout.mode === 'desktop'">
+    <mat-nav-list>
+      <a mat-list-item (click)="layout.mode === 'desktop' ? null : drawer.toggle()" routerLink="/">Home</a>
+      <a mat-list-item (click)="layout.mode === 'desktop' ? null : drawer.toggle()" routerLink="/about">About</a>
+      <a mat-list-item (click)="layout.mode === 'desktop' ? null : drawer.toggle()" routerLink="/services">Services</a>
+      <a mat-list-item (click)="layout.mode === 'desktop' ? null : drawer.toggle()" routerLink="/contact">Contact</a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
